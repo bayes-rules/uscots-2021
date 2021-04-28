@@ -27,20 +27,20 @@ You will need to
 
 ## During the Workshop
 
-alarm_clock:	1:30 - 2:00 pm  
+:alarm_clock:	1:30 - 2:00 pm  
 :computer: [An Overview](https://bayes-rules-uscots2021.netlify.app/slides/00-intro.html)
 
 ---
 
-alarm_clock:	2:00 - 2:30 pm  
+:alarm_clock:	2:00 - 2:30 pm  
 :computer: [Bayesian Foundations](https://bayes-rules-uscots2021.netlify.app/slides/01-foundations.html)
 
 ---
 
-alarm_clock:	2:30 - 3:00 pm  
+:alarm_clock:	2:30 - 3:00 pm  
 :computer: [Posterior Simulation and  Analysis](https://bayes-rules-uscots2021.netlify.app/slides/02-posterior.html)
 
 ---
 
-alarm_clock:	3:00 - 3:30 pm  
+:alarm_clock:	3:00 - 3:30 pm  
 :computer: [Bayesian Regression and Classification](https://bayes-rules-uscots2021.netlify.app/slides/03-modeling.html)
