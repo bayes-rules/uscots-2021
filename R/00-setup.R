@@ -1,0 +1,5 @@
+install.packages("tidyverse")
+install.packages("rstan")
+install.packages("rstanarm")
+install.packages("devtools")
+devtools::install_github("mdogucu/bayesrules")
