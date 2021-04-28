@@ -1,0 +1,232 @@
+
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+
+* {
+  font-family: 'Lora';
+}
+
+.title-slide {
+  background-color: #006666	;
+}
+
+
+.title-slide h1 {
+  color: whitesmoke;
+}
+
+.title-slide a {
+  color: #ffcc66;
+
+}
+
+.title-slide h2, .title-slide h3{
+  color: whitesmoke;
+  font-size:20px;
+}
+
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+a{
+  color: #ffcc66;
+  
+}
+
+p,h1,h2,h3,h4 {
+  font-size: 30px;
+  color:whitesmoke;
+  background-color: #006666	;
+}
+
+.font-75{
+  font-size:75px;
+}
+
+.font-20{
+  font-size:20px;
+}
+
+.remark-slide-content {
+    background-color: #006666	;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  font-size:30px;
+}
+
+
+td{
+  font-size:32px;
+  padding:5px;
+  text-align:center;
+}
+
+th, td{padding: 5px;
+  font-size:32px;
+}
+
+thead, tfoot, tr:nth-child(even) { background: #eee }
+
+
+div.my-header {
+    background-color: #b0a160;
+    color: #434e52;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: left;
+}
+
+div.my-footer {
+    background-color: #b0a160;
+    color: #434e52;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 33px;
+    width: 100%;
+    text-align: center;
+}
+
+div.my-footer a{
+  font-weight: bold;
+  color: #434e52;
+
+}
+ul li{
+  color:whitesmoke;
+  list-style-type: square;
+  font-size:30px;
+
+}
+
+ol li{
+  font-size:30px;
+
+}
+
+  
+  
+.question{
+  background-color:#cfafaf;
+  font-size: 43px;
+  color:#000000;
+  text-align:center;
+
+}
+
+.pull-left {
+  float: left;
+  width: 49%;
+}
+.pull-right {
+  float: right;
+  width: 49%;
+  padding-left: 1%;
+
+}
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.remark-code, .remark-inline-code { 
+  font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+  font-size: 22px;
+}
+
+.strike{
+  text-decoration: line-through;
+
+}
+
+.left-panel {
+  width: 44%;
+  float: left;
+}
+.right-panel {
+  width: 55%;
+  float: right;
+  padding-left: 1%;
+}
+
+
+
+td{
+  font-size:32px;
+  padding:5px;
+  text-align:center;
+  
+}
+
+th, td{padding: 5px;
+  font-size:30px;
+}
+
+thead, tfoot, tr:nth-child(even) { background: #DFD9BF}
+
+
+table, th, td {
+  border: 1px solid;
+  border-color: #464026;
+
+}
+
+.reference{
+    position: fixed;
+    bottom: 33px;
+    right:35px;
+    font-size:18px;
+    font-family: 'Lora';
+    color:whitesmoke;
+
+}
+
+.footnote{
+    position: fixed;
+    bottom: 33px;
+    font-size:18px;
+    font-family: 'Lora';
+    color:whitesmoke;
+
+}
+
+.large{
+  font-size:50px;
+}
+
+
+
+/* Progress Bar */
+/* https://github.com/yihui/xaringan/wiki/Progressbar*/
+
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: whitesmoke;
+}

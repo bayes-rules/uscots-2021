@@ -1,0 +1,20 @@
+---
+title: "Teaching Bayesian Statistics at the Undergraduate Level\n\nBayesian Foundations"
+subtitle: "USCOTS workshop"
+author: "Miles Ott"
+date: "2021-06-24"
+output:
+  xaringan::moon_reader:
+    css: style.css
+    lib_dir: libs
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+---

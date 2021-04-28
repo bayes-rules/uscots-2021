@@ -1,0 +1,206 @@
+---
+title: "Teaching Bayesian Statistics at the Undergraduate Level\n\nAn Overview"
+subtitle: "USCOTS workshop"
+author: "Mine Dogucu, Alicia A. Johnson, and Miles Ott"
+date: "2021-06-24"
+output:
+  xaringan::moon_reader:
+    css: style.css
+    lib_dir: libs
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+---
+
+class: middle center
+
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+library(bayesrules)
+library(rstanarm)
+library(bayesplot)
+theme_set(theme_gray(base_size = 18))
+```
+
+<img src="img/headshot.jpeg"
+        alt="A headshot of a woman with curly, short, ear-length hair with green eyes and red lipstick."
+        style="width:165px; margin-top:20px; border: 3px solid whitesmoke; padding: 10px;">
+
+Mine Dogucu
+
+University of California Irvine        
+
+.large[`r fontawesome::fa(name = "twitter")`] <a href = "http://twitter.com/MineDogucu">MineDogucu</a>  
+.large[`r fontawesome::fa(name = "github")`] <a href = "http://github.com/mdogucu">mdogucu</a>  
+.large[`r fontawesome::fa(name = "link")`] <a href = "http://minedogucu.com">minedogucu.com</a>
+
+
+---
+
+class: middle center
+
+<img src="img/alicia.jpg"
+        alt="A headshot of a woman with long blonde hair wearing a brownish yellow tshirt and a red and pink floral silk scarf wrapped around her neck."
+        style="width:165px; margin-top:20px; border: 3px solid whitesmoke; padding: 10px;">
+
+Alicia Johnson
+
+Macalester College
+
+.large[`r fontawesome::fa(name = "link")`] <a href = "https://ajohns24.github.io/portfolio">Website</a>
+
+.large[`r fontawesome::fa(name = "github")`] <a href = "https://github.com/ajohns24">ajohns24</a>  
+
+---
+
+class: middle center
+
+<img src="img/miles.png"
+        alt="A headshot of a man with short dark hair, and a dark moustache. He is wearing a blue button up shirt and dark gray jacket"
+        style="width:165px; margin-top:20px; border: 3px solid whitesmoke; padding: 10px;">
+
+Miles Ott
+
+Smith College
+
+.large[`r fontawesome::fa(name = "twitter")`] <a href = "https://twitter.com/Miles_Ott">Miles_Ott</a>   
+.large[`r fontawesome::fa(name = "link")`] <a href = "https://milesott.com/">milesott.com</a>  
+.large[`r fontawesome::fa(name = "github")`] <a href = "https://github.com/MilesOtt">MilesOtt</a>  
+
+
+---
+
+class: middle
+
+### Bayes Rules! An Introduction to Bayesian Modeling with R
+
+.center[
+
+
+[`r fontawesome::fa(name = "link")`bayesrulesbook.com](https://www.bayesrulesbook.com/)
+]
+
+---
+
+class: middle
+
+```{r echo=FALSE, fig.align='center', out.width="50%"}
+knitr::include_graphics("img/bayes_diagram.png")
+```
+
+---
+
+class: middle 
+
+## Historical changes
+
+- Advances in computing
+
+--
+
+- Departure from tradition
+
+--
+
+- Reevaluation of subjectivity
+
+
+
+---
+
+### Students' Background
+
+
+
+---
+
+
+class: middle
+
+### Overview
+
+Bayesian Foundations (Unit 1)
+
+--
+
+<hr>
+
+
+Posterior Simulation and Analysis (Unit 2)
+
+--
+
+<hr>
+
+Bayesian Regression and Classification (Unit 3)
+
+--
+
+<hr> 
+
+Hierarchical Bayesian Models (Unit 4)
+
+---
+
+class: middle
+
+## Pedagogical Approach
+
+- Checking intuition 
+
+--
+
+- Active learning (quizzes and applications)
+
+--
+
+- Computing & math together
+
+--
+
+- Compute for a single case, then use built-in functions
+
+---
+
+class: middle
+
+## Accessibility and Inclusion
+
+- Open-Access
+
+--
+
+- Visual access (color-palette and alternate text)
+
+--
+
+- Citations
+
+--
+
+- Datasets
+
+More on the topic is available on [DataPedagogy blog](https://www.datapedagogy.com/#category:Bayes_Rules!_book).
+---
+
+class: middle
+
+- [Undergraduate Bayesian Education Resources](https://undergrad-bayes.netlify.app/)
+
+--
+
+- [Undergraduate Bayesian Education Network](https://undergrad-bayes.netlify.app/network.html)
+
+---
+
+class: middle center
+
+[Quiz yourself](https://www.bayesrulesbook.com/chapter-1.html#quiz-yourself-1)
+
