@@ -1,30 +1,31 @@
-# Installing Packages -----------------------------------------------------
+# Loading packages --------------------------------------------------------
 
-install.packages("tidyverse")
-install.packages("rstan")
-install.packages("rstanarm")
-install.packages("devtools")
-install.packages("bayesplot")
-install.packages("tidybayes")
-devtools::install_github("mdogucu/bayesrules")
-
-
-# Checking installations --------------------------------------------------
-
-# Load some packages
 library(bayesrules)
 library(rstanarm)
 library(bayesplot)
 library(tidyverse)
 library(tidybayes)
+library(devtools)
 
-# Load the data
+#### installing bayesrules package
+
+# install_github("bayes-rules/bayesrules")
+
+
+# Data Wrangling ----------------------------------------------------------
+
+
 data(weather_WU)
+
 weather_WU %>% 
   group_by(location) %>% 
   tally()
 
-# Model
+
+
+# Modeling ----------------------------------------------------------------
+
+
 weather_model_1 <- stan_glm(temp3pm ~ temp9am, 
                             data = weather_WU, family = gaussian,
                             prior_intercept = normal(25, 5),
@@ -34,5 +35,6 @@ weather_model_1 <- stan_glm(temp3pm ~ temp9am,
 
 
 # MCMC diagnostics
+
 mcmc_trace(weather_model_1, size = 0.1)
 
