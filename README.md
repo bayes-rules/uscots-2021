@@ -21,7 +21,7 @@ You will need to
 
 - Download and install [R](https://mirror.las.iastate.edu/CRAN/)
 - Download and install [RStudio](https://www.rstudio.com/products/rstudio/download/). There is a free desktop version.
-- Install necessary R packages. You can watch this [video]() that walks you through package installations.
+- Install necessary R packages. You can watch this [video](https://uci.yuja.com/V/Video?v=3259368&node=10932173&a=691723361&autoplay=1) that walks you through package installations.
 
 <hr style="border:2px solid gray"> </hr>
 
