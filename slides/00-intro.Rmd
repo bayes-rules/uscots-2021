@@ -87,6 +87,11 @@ class: middle
 [`r fontawesome::fa(name = "link")`bayesrulesbook.com](https://www.bayesrulesbook.com/)
 ]
 
+```{r echo=FALSE, out.width="30%", fig.align='center'}
+knitr::include_graphics("img/bayes-rules-hex.png")
+```
+
+
 ---
 
 class: middle
