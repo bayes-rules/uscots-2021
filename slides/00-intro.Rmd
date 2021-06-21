@@ -92,65 +92,22 @@ knitr::include_graphics("img/bayes-rules-hex.png")
 ```
 
 
----
-
-class: middle
-
-```{r echo=FALSE, fig.align='center', out.width="50%"}
-knitr::include_graphics("img/bayes_diagram.png")
-```
 
 ---
 
 class: middle 
 
-## Historical changes
+## Our Motivation
 
-- Advances in computing
-
---
-
-- Departure from tradition
+- Bayesian methods are becoming more popular
 
 --
 
-- Reevaluation of subjectivity
-
-
-
----
-
-### Students' Background
-
-
-
----
-
-
-class: middle
-
-### Overview
-
-Bayesian Foundations (Unit 1)
+- Computing advances and reevaluation of subjectivity
 
 --
 
-<hr>
-
-
-Posterior Simulation and Analysis (Unit 2)
-
---
-
-<hr>
-
-Bayesian Regression and Classification (Unit 3)
-
---
-
-<hr> 
-
-Hierarchical Bayesian Models (Unit 4)
+- Lack of resources for the target audience (advanced undergraduate statistics/ds majors or similarly trained learners)
 
 ---
 
@@ -197,15 +154,50 @@ More on the topic is available on [DataPedagogy blog](https://www.datapedagogy.c
 
 class: middle
 
+## Resources
+
 - [Undergraduate Bayesian Education Resources](https://undergrad-bayes.netlify.app/)
 
 --
 
 - [Undergraduate Bayesian Education Network](https://undergrad-bayes.netlify.app/network.html)
 
+--
+
+- [STATS 115 at UC Irvine](https://www.stats115.com)
+
 ---
 
+
+class: middle
+
+### Overview
+
+Bayesian Foundations (Unit 1)
+
+--
+
+<hr>
+
+
+Posterior Simulation and Analysis (Unit 2)
+
+--
+
+<hr>
+
+Bayesian Regression and Classification (Unit 3)
+
+--
+
+<hr> 
+
+Hierarchical Bayesian Models (Unit 4)
+
+---
 class: middle center
+
+
 
 [Quiz yourself](https://www.bayesrulesbook.com/chapter-1.html#quiz-yourself-1)
 
