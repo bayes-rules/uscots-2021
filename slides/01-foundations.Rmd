@@ -26,21 +26,9 @@ class: middle
 ## Bayesian Foundations Chapters
 
 1. The Big (Bayesian) Picture
-
---
-
 2. Bayes' Rule
-
---
-
 3. The Beta-Binomial Bayesian Model
-
---
-
 4. Balance and Sequentiality in Bayesian Analyses
-
---
-
 5. Conjugate Families
 
 
@@ -51,15 +39,9 @@ class: middle
 
 ## Chapter 1 Goals
 
-- Learn to think like a Bayesian
-
---
-
-- Explore the foundations of a Bayesian data analysis and how they contrast with the frequentist alternative
-
---
-
-- Learn a little bit about the history of the Bayesian philosophy
+- Learn to __think like a Bayesian__
+- Explore the __foundations of a Bayesian data analysis__ and how they __contrast with the frequentist alternative__
+- Learn a little bit about the __history of the Bayesian philosophy__
 
 ---
 
@@ -67,21 +49,10 @@ class: middle
 
 ## Chapter 2 Goals
 
---
-
-- Explore foundational probability tools such as marginal, conditional, and joint probability models and the Binomial model
-
---
-
-- Conduct your first formal Bayesian analysis! You will construct your first prior and likelihood models and, from these, construct your first posterior models via Bayes’ Rule
-
---
-
-- Practice your Bayesian grammar. Practice the formal notation and terminology central to Bayesian grammar
-
---
-
-- Simulate Bayesian models. Simulation is integral to building intuition for and supporting Bayesian analyses. You’ll conduct your first simulation, using the R statistical software, in this chapter
+- Explore __probability tools__: marginal, conditional, and joint probability models and the Binomial model
+- Conduct your __first formal Bayesian analysis!__ Construct your first prior and likelihood models and, posterior models via Bayes’ Rule
+- Practice your __Bayesian grammar__. Practice the formal notation and terminology central to Bayesian grammar
+- __Simulate Bayesian models__. Conduct your first simulation, using the R statistical software, in this chapter
 
 ---
 
@@ -89,17 +60,9 @@ class: middle
 
 ## Chapter 3 Goals
 
---
-
-- Utilize and tune continuous priors. You will learn how to interpret and tune a continuous Beta prior model to reflect your prior information about  $\pi$
-
---
-
-- Interpret and communicate features of prior and posterior models using properties such as mean, mode, and variance
-
---
-
-- Construct the fundamental Beta-Binomial model for proportion $\pi$
+- __Interpret and tune a continuous Beta prior__ model to reflect your prior information about  $\pi$
+- Interpret and communicate __features of prior and posterior models__ using properties such as mean, mode, and variance
+- Construct the __fundamental Beta-Binomial__ model for proportion $\pi$
 
 ---
 
@@ -107,13 +70,8 @@ class: middle
 
 ## Chapter 4 Goals
 
---
-
-- Explore the balanced influence of the prior and data on the posterior. You will see how our choice of prior model, the features of our data, and the delicate balance between them can impact the posterior model
-
---
-
-- Perform sequential Bayesian analysis. You will explore one of the coolest features of Bayesian analysis: how a posterior model evolves as it’s updated with new data
+- Explore the balanced __influence of the prior and data on the posterior__. 
+- Explore one of the coolest features of Bayesian analysis: how a __posterior model evolves as it’s updated with new data__
 
 ---
 
@@ -121,12 +79,8 @@ class: middle
 
 ## Chapter 5 Goals
 
---
 
-- Practice building Bayesian models. You will build Bayesian models by practicing how to recognize kernels and make use of proportionality
-
---
-
-- Familiarize yourself with conjugacy. You will learn about what makes a prior conjugate and why this is a helpful property
+- Build Bayesian models by practicing how to __recognize kernels and make use of proportionality__
+- Familiarize yourself with conjugacy. You will learn about what makes a __prior conjugate and why this is a helpful property__
 
 ---
