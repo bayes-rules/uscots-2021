@@ -4,7 +4,7 @@
 
 ## Before the Workshop: Instructions for R Users
 
-If you plan on following the R code by running it during the workshop please download the files provided on this page by clicking  the green Code button and then Download Zip. 
+If you plan on following the hands-on activities with R code during the workshop, please download the files provided on this page by clicking  the green Code button and then Download Zip. 
 
 We recommend running the code in the [setup](https://github.com/bayes-rules/uscots-2021/blob/main/R/00-setup.R) file to ensure that you have the necessary packages prior to the workshop.
 
@@ -15,7 +15,7 @@ The `bayesrules` package will need to be installed from GitHub by running the fo
 
 ## Before the Workshop: Instructions for R beginners
 
-If you plan on following the R code by running it during the workshop please download the files provided on this page by clicking  the green Code button and then Download Zip.
+If you plan on following the hands-on activities with R code during the workshop, please download the files provided on this page by clicking  the green Code button and then Download Zip.
 
 You will need to 
 
