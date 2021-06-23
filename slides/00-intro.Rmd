@@ -195,6 +195,8 @@ class: middle
 
 - [STATS 115 at UC Irvine](https://www.stats115.com)
 
+- [SDS 390 at Smith College](https://www.dropbox.com/sh/qdmxfapt9vv08xm/AABWnhZNmqOdjnaVyGJ5VLyEa?dl=0)
+
 
 ---
 
