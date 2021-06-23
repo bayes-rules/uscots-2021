@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.align = 'center')
 ```
 
-We have provided `.Rmd` file for this activity, if you prefer to use R file please run `knitr::purl("R/03-regression.Rmd", "R/03-regression.R")` in the Console.
+We have provided `.Rmd` file for this activity, if you prefer to use R file please run `knitr::purl("R/03-regression-activity.Rmd", "R/03-regression-activity.R")` in the Console.
 If you are using `.Rmd` we recommend that you avoid knitting often and rely more on `Run Current Chunk` feature, as it will take some time to run the models.
 We have already knit this file to save you some time. 
 You can directly open the `R/03-regression.html` file using your web browser.
@@ -92,3 +92,7 @@ bike_model <- stan_glm(rides ~ temp_feel, data = bikes,
 ## Moving beyond normal
 
 If you are done early and want to look around for further modeling contexts, feel free to check out [Poisson and Negative Binomial Regression](https://www.bayesrulesbook.com/chapter-12.html), [Logistic Regression](https://www.bayesrulesbook.com/chapter-13.html), and/or [Naive Bayes Classification](https://www.bayesrulesbook.com/chapter-14.html) chapters in the book.
+
+## Discussion
+
+
