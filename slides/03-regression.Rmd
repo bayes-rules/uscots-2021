@@ -20,7 +20,61 @@ output:
 ---
 
 
+class: middle
+
+## Models
+
+.pull-left[
+
+- Simple Normal Regression
+- Extending the Normal Regression (multiple predictors, categorical predictors, interaction terms)
+- Poisson and Negative Binomial regression
+- Logistic Regression
+- Naive Bayes classification
+]
+
+.pull-right[
+
+```{r echo=FALSE, fig.align='center', out.width="80%"}
+knitr::include_graphics("img/unit3.png")
+```
+
+]
+
 ---
 
 class: middle
 
+## Modeling Process
+
+- Tuning prior models
+- Simulating the posterior
+- Posterior prediction
+- Model evaluation
+
+---
+
+```{r echo=FALSE, fig.align='center', out.width="40%"}
+knitr::include_graphics("img/bike.jpeg")
+```
+
+---
+
+## Modeling Process
+
+- Tuning prior models
+- Simulating the posterior
+- Posterior prediction
+- Model evaluation
+
+---
+
+
+---
+
+## Discussion Questions
+
+
+Once you complete the regression activity
+
+- What you can/cannot include 
