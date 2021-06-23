@@ -1,0 +1,45 @@
+body { 
+    background-image: url('../slides/img/bayes-rules-hex.png');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: right 10px top 20px;; 
+    background-size: 8%;
+    
+
+
+}
+
+
+.list-group-item.active, 
+.list-group-item.active:focus, 
+.list-group-item.active:hover {
+    background-color: #551b92; }
+    
+h1, h2, h3 {
+  color:#551b92;}
+  
+a {
+  color:#551b92;
+}
+
+ul {
+    list-style-type: square;
+    
+}
+
+img.right {
+    position: absolute;
+    right: 0px;
+    padding: 10px;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#attention {
+  background-color:	#43d81550;
+  color:#000000;
+}
