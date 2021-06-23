@@ -40,7 +40,7 @@
 # try multiple values for the parameters!
 
 library(bayesrules)
-plot_beta(2,2) 
+plot_beta(alpha=2,beta=2) 
 
 
 # ~Exercise with R~:
@@ -54,7 +54,7 @@ plot_beta(2,2)
 # prior, the likelihood, and the posterior
 
 ?plot_beta_binomial()
-plot_beta_binomial(2,2,0,2)
+plot_beta_binomial(alpha=2,beta=2,y=0,n=2)
 
 
 # ~Exercise With R~:
@@ -68,7 +68,7 @@ plot_beta_binomial(2,2,0,2)
 # prior and that 9 out of 20 movies 
 # passed the Bechdel test.
 
-summarize_beta_binomial(2,2,0,2)
+summarize_beta_binomial(alpha=2,beta=2,y=0,n=2)
 
 
 # ~Exercise with R~: Influence of the prior.
@@ -80,5 +80,5 @@ summarize_beta_binomial(2,2,0,2)
 # How does your prior distribution impact
 # The posterior distribution?
 
-plot_beta_binomial(2,2,0,2)
-summarize_beta_binomial(2,2,0,2)
+plot_beta_binomial(alpha=2,beta=2,y=0,n=2)
+summarize_beta_binomial(alpha=2,beta=2,y=0,n=2)
