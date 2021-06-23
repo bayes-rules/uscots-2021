@@ -15,10 +15,26 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.align = 'center')
 ```
 
-We have provided `.Rmd` file for this activity, if you prefer to use R file please run `knitr::purl("R/03-regression-activity.Rmd", "R/03-regression-activity.R")` in the Console.
-If you are using `.Rmd` we recommend that you avoid knitting often and rely more on `Run Current Chunk` feature, as it will take some time to run the models.
-We have already knit this file to save you some time. 
-You can directly open the `R/03-regression.html` file using your web browser.
+\
+\
+
+
+**Getting started**
+
+- We have provided an `.Rmd` file for this activity: `R/03-regression-activity.Rmd`. We recommend that you avoid knitting often and rely more on the `Run Current Chunk` feature, as it will take some time to simulate the Bayesian models.
+
+- If you prefer to use an `R` file, first make sure that you're working within your directory with the repo files, and then run the following from the Console:    
+    `knitr::purl("R/03-regression-activity.Rmd", "R/03-regression-activity.R")`    
+     
+     This will create an R file with the activity R code. For the corresponding discussion and prompts, see the `R/03-regression-activity.html` file in the repo.
+    
+
+\
+\
+
+
+
+    
 
 ## Exploratory analysis
 
@@ -53,6 +69,9 @@ Consider whether the relationship is: 1) linear; 2) positive; 3) strong or not.
 ## Building the regression model
 
 ## Tuning prior models for regression parameters
+
+HI MINE :). I'd also add something about pretending not to have already seen the data, and maybe the prior plausible model lines? (Though i'm not sure that the prep materials included those packages.)
+
 
 ```{r}
 plot_normal(mean = 5000, sd = 1000) + 
