@@ -17,4 +17,57 @@ output:
           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
         </div>`
+
+
+
 ---
+
+class: top
+
+# Motivation
+
+Bayesian models can get real complicated, real fast:
+
+<br>
+
+$$\begin{split}
+f(\beta_0,\beta_1,\sigma \; | \; \vec{y}) 
+ & = \frac{\text{prior} \cdot \text{likelihood}}{ \int \text{prior} \cdot \text{likelihood}} \\
+ & \\
+ & = \frac{f(\beta_0) f(\beta_1) f(\sigma) \cdot \left[\prod_{i=1}^{n}f(y_i|\beta_0, \beta_1, \sigma) \right]}
+ {\int\int\int f(\beta_0) f(\beta_1) f(\sigma) \cdot \left[\prod_{i=1}^{n}f(y_i|\beta_0, \beta_1, \sigma) \right] d\beta_0 d\beta_1 d\sigma} \\
+ & \\
+ & = \text{no thanks!} \\
+ \end{split}$$
+ 
+ 
+
+---
+
+class: top
+
+
+# Unit 2
+
+- Chapter 6: _Approximating_ the Posterior
+
+- Chapter 7: MCMC Under the Hood
+
+- Chapter 8: Posterior Inference and Prediction
+
+
+
+---
+
+class: top
+
+
+# Activity
+
+- Get your hands on some Markov chain Monte Carlo samples.
+
+- Determine whether these are trustworthy, i.e. perform some MCMC diagnostics.
+
+- Use an MCMC sample to *approximate* features of the posterior model.
+
+- Play around with an MCMC algorithm. (You most likely won't get here -- this is just for future reference.)

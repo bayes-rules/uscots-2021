@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>02-posterior.utf8</title>
+    <title>02-posterior.knit</title>
     <meta charset="utf-8" />
     <meta name="author" content="Alicia Johnson" />
     <meta name="date" content="2021-06-24" />
-    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
   <body>
@@ -21,6 +21,55 @@ Posterior Simulation and Analysis
 ---
 
 
+class: top
+
+# Motivation
+
+Bayesian models can get real complicated, real fast:
+
+&lt;br&gt;
+
+`$$\begin{split}
+f(\beta_0,\beta_1,\sigma \; | \; \vec{y}) 
+ &amp; = \frac{\text{prior} \cdot \text{likelihood}}{ \int \text{prior} \cdot \text{likelihood}} \\
+ &amp; \\
+ &amp; = \frac{f(\beta_0) f(\beta_1) f(\sigma) \cdot \left[\prod_{i=1}^{n}f(y_i|\beta_0, \beta_1, \sigma) \right]}
+ {\int\int\int f(\beta_0) f(\beta_1) f(\sigma) \cdot \left[\prod_{i=1}^{n}f(y_i|\beta_0, \beta_1, \sigma) \right] d\beta_0 d\beta_1 d\sigma} \\
+ &amp; \\
+ &amp; = \text{no thanks!} \\
+ \end{split}$$`
+ 
+ 
+
+---
+
+class: top
+
+
+# Unit 2
+
+- Chapter 6: _Approximating_ the Posterior
+
+- Chapter 7: MCMC Under the Hood
+
+- Chapter 8: Posterior Inference and Prediction
+
+
+
+---
+
+class: top
+
+
+# Activity
+
+- Get your hands on some Markov chain Monte Carlo samples.
+
+- Determine whether these are trustworthy, i.e. perform some MCMC diagnostics.
+
+- Use an MCMC sample to *approximate* features of the posterior model.
+
+- Play around with an MCMC algorithm. (You most likely won't get here -- this is just for future reference.)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -29,7 +78,7 @@ Posterior Simulation and Analysis
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false,
-"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>`"
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>`\n"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
