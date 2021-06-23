@@ -70,8 +70,7 @@ Consider whether the relationship is: 1) linear; 2) positive; 3) strong or not.
 
 ## Tuning prior models for regression parameters
 
-HI MINE :). I'd also add something about pretending not to have already seen the data, and maybe the prior plausible model lines? (Though i'm not sure that the prep materials included those packages.)
-
+(some comment about pretending that we haven't yet seen the data)
 
 ```{r}
 plot_normal(mean = 5000, sd = 1000) + 

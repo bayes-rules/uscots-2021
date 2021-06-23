@@ -1,0 +1,177 @@
+---
+title: "Bayesian Foundations"
+author: "Miles Ott"
+output: 
+  html_document:
+    css: "activity-style.css"
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.height = 3,
+                      fig.width = 4,
+                      fig.align = 'center')
+```
+
+
+\
+\
+
+
+**Getting started**
+
+- We have provided an `.Rmd` file for this activity: `R/01-foundations-activity.Rmd`.
+
+- If you prefer to use an `R` file, first make sure that you're working within your directory with the repo files, and then run the following from the Console:    
+    `knitr::purl("R/01-foundations-activity.Rmd", "R/01-foundations-activity.R")`    
+     
+     This will create an R file with the activity R code. For the corresponding discussion and prompts, see the `R/01-foundations-activity.html` file in the repo.
+     
+
+\
+\
+
+
+
+# Background
+
+In Alison Bechdel's 1985 comic strip The Rule, a character states that they only see a movie if it satisfies the following three rules:
+
+- the movie has to have at least two women in it;
+- these two women talk to each other; and
+- they talk about something besides a man.
+
+A movie that satisfies these criteria is said to have passed the "Bechdel Test".
+
+\
+\
+
+
+# Building a prior model
+
+**Question:**    
+What percentage of all recent movies do you think pass the Bechdel test?
+
+
+
+
+\
+\
+
+
+**Question:**
+If you were to make a model for $\pi$, the proportion of recent movies that would pass the Bechdel test, what would it look like?    
+
+- Where would it be centered (approximately)?
+- Would it be symmetric or skewed?
+- How sure are you about $\pi$?
+
+
+
+
+\
+\
+
+
+**R Exercise**    
+
+Modify the parameters in the `plot_beta()` function below to tune and plot your prior distribution for $\pi$, the proportion of recent movies that pass the Bechdel test.
+
+Note: It may take some playing around before you land on a plot that is close to your prior understanding of $\pi$. It is OK (and encouraged!) to experiment and try multiple values for the parameters! It is also OK if your prior is different from the priors of your group mates.
+
+
+```{r}
+# Change up the alpha and beta values (both must be positive)
+library(bayesrules)
+plot_beta(alpha = 2, beta = 2) 
+```
+
+
+
+\
+\
+
+
+# Data and the Posterior
+
+**R Exercise**    
+
+You just collected some data on 20 recent movies. It turns out that 9 of these pass the Bechdel test. Check out and discuss the corresponding *likelihood function* of $\pi$. Essentially, the higher the likelihood function at a given $\pi$ value, the more compatible our data is with that value.
+
+```{r}
+plot_binomial_likelihood(y = 9, n = 20)
+```
+
+
+
+\
+\
+
+
+
+**R Exercise**
+
+Let's combine the prior and data to build the posterior model of $\pi$. Run the code below to learn about the parameters of the `plot_beta_binomial()` function:
+
+```{r}
+?plot_beta_binomial
+```
+
+Now try it out. Modify the `plot_beta_binomial()` function below to plot your prior, the likelihood, and the posterior:
+
+```{r}
+plot_beta_binomial(alpha = 2, beta = 2, y = 0, n = 2)
+```
+
+
+
+
+\
+\
+
+
+
+**R Exercise**
+
+In addition to plotting, we can also describe the prior and posterior models of $\pi$ with numeric summaries using the `summarize_beta_binomial()` function. Modify the `summarize_beta_binomial()` below to incorporate information on your prior and data that 9 out of 20 movies passed the Bechdel test. What does each number tell us?
+
+```{r}
+summarize_beta_binomial(alpha = 2, beta = 2, y = 0, n = 2)
+```
+
+
+
+\
+\
+
+
+
+# Play around
+
+**R Exercise: Influence of the prior**    
+
+Modify the code below, keeping our data the same (9 out of 20 films passed the test), but trying out a range of different priors. How does your prior model impact the posterior? 
+
+```{r}
+plot_beta_binomial(alpha = 2, beta = 2, y = 0, n = 2)
+summarize_beta_binomial(alpha = 2, beta = 2, y = 0, n = 2)
+```
+
+
+
+\
+\
+
+
+**R Exercise: Influence of the data**    
+
+Modify the code below, starting with your original prior, but changing up the data. Instead of 9 of 20 films passing the test (45%), what if it were 27 of 60 (still 45%)? Or 45 of 100 (still 45%)? Or 450 of 1000 (still 45%)? How does the data impact the posterior? 
+
+```{r}
+plot_beta_binomial(alpha = 2, beta = 2, y = 0, n = 2)
+summarize_beta_binomial(alpha = 2, beta = 2, y = 0, n = 2)
+```
+
+
