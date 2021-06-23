@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 README.html
-.DS_Store
+**/.DS_Store
+/R/*.html
