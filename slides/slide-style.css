@@ -230,3 +230,39 @@ table, th, td {
   height: 100%;
   background-color: whitesmoke;
 }
+
+/*code*/
+
+pre {
+  border:1px solid whitesmoke;
+  padding: 0.50em;
+  overflow-x: auto;
+  color:whitesmoke;
+}
+
+.remark-code, .remark-inline-code { 
+  font-family: monospace;
+  font-size: 22px;
+  color:whitesmoke;
+}
+
+
+
+.remark-inline-code{
+ color:#F7B894;
+}
+
+.hljs-github .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: .5em;
+}
+
+.remark-code-has-line-highlighted .remark-code-line:not(.remark-code-line-highlighted) {
+  opacity: 0.8;
+}
+
+.remark-code-line-highlighted {
+  background-color: #d7c7ac;
+
+}

@@ -15,12 +15,37 @@ knitr::opts_chunk$set(echo = TRUE)
 
 We have provided `.Rmd` file for this activity, if you prefer to use R file please run `knitr::purl("R/03-regression.Rmd", "R/03-regression.R")` in the Console.
 If you are using `.Rmd` we recommend that you avoid knitting often and rely more on `Run Current Chunk` feature, as it will take some time to run the models.
+We have already knit this file to save you some time. 
+You can directly open the `R/03-regression.html` file using your web browser.
 
-## Some Title
+## Exploratory analysis
+
+```{r message=FALSE, warning=FALSE}
+# Load packages
+library(bayesrules)
+library(tidyverse)
+library(rstan)
+library(rstanarm)
+library(bayesplot)
+library(tidybayes)
+library(janitor)
+library(broom.mixed)
+```
 
 
-## More Title
+## Building the regression model
 
-### Some H3 title
+## Tuning prior models for regression parameters
+
+## Posterior simulation
+
+## Interpreting the posterior
+
+```{r}
+stringi::stri_rand_lipsum(n_paragraphs = 5)
+```
+
+## Posterior prediction
+
 
 <div id= "attention"> Here is some important note </div>
