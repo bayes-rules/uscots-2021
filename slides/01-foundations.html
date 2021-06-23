@@ -21,71 +21,91 @@ Bayesian Foundations
 ---
 
 
----
 
-class: middle 
+class: top 
 
 ## Bayesian Foundations Chapters
 
-- 1 The Big (Bayesian) Picture
-- 2 Bayes' Rule
-- 3 The Beta-Binomial Bayesian Model
-- 4 Balance and Sequentiality in Bayesian Analyses
-- 5 Conjugate Families
+- Chapter 1. The Big (Bayesian) Picture
+- Chapter 2. Bayes' Rule
+- Chapter 3. The Beta-Binomial Bayesian Model
+- Chapter 4. Balance and Sequentiality
+- Chapter 5. Conjugate Families
 
 
 
 ---
 
-class: middle 
+class: top 
 
-## Chapter 1 Goals
+## By the end of this section students will be able to:
 
-- Learn to __think like a Bayesian__
-- Explore the __foundations of a Bayesian data analysis__ and how they __contrast with the frequentist alternative__
-- Learn a little bit about the __history of the Bayesian philosophy__
+- _Think_ like a Bayesian
+- Be comfortable with necessary _probability tools_
+- Construct prior and likelihood and posterior models
+- _Simulate Bayesian models_ in R
+- Understand the _influence of the prior and data_ on the posterior
+- Recognize and use common _Conjugate Families_
+---
+
+class: top 
+
+## Thinking Like a Bayesian
+
+
+.center[&lt;img src="img/pasta_bayes_diagram.png"
+style="width:865px;"&gt;]
+
 
 ---
 
-class: middle 
+class: top
 
-## Chapter 2 Goals
+## Bechdel Test
 
-- Explore __probability tools__: marginal, conditional, and joint probability models and the Binomial model
-- Conduct your __first formal Bayesian analysis!__ Construct your first prior and likelihood models and, posterior models via Bayes’ Rule
-- Practice your __Bayesian grammar__. Practice the formal notation and terminology central to Bayesian grammar
-- __Simulate Bayesian models__. Conduct your first simulation using R
+.center[&lt;img src="img/bechdel_comic.jpg"
+style="width:665px; margin-top:20px; border: 3px solid whitesmoke; padding: 10px;"&gt;]
 
 ---
 
-class: middle 
+class: top
 
-## Chapter 3 Goals
+## Bechdel Test
 
-- __Interpret and tune a continuous Beta prior__ model to reflect your prior information about  `\(\pi\)`
-- Interpret and communicate __features of prior and posterior models__ using properties such as mean, mode, and variance
-- Construct the __fundamental Beta-Binomial__ model for proportion `\(\pi\)`
+Movie must have:
+- Two women
+- Who speak with each other
+- About something other than a man
 
----
-
-class: middle 
-
-## Chapter 4 Goals
-
-- Explore the balanced __influence of the prior and data on the posterior__. 
-- Explore one of the coolest features of Bayesian analysis: how a __posterior model evolves as it’s updated with new data__
+.right[&lt;img src="img/bechdel.png"
+style="width:565px;"&gt;]
 
 ---
 
-class: middle 
+class: top
 
-## Chapter 5 Goals
+## Building a Prior Distribution: Bechdel Test
 
+--
 
-- Build Bayesian models by practicing how to __recognize kernels and make use of proportionality__
-- Familiarize yourself with conjugacy. You will learn about what makes a __prior conjugate and why this is a helpful property__
+- What proportion of movies do you think pass the Bechdel test? (chat your answer)
 
----
+--
+
+- How sure are you? Choose a range of reasonable values. (chat your answer)
+
+--
+
+- __Breakout rooms__: &lt;a href = "https://github.com/bayes-rules/uscots-2021/blob/main/R/01-foundations.R"&gt;01-foundations.R&lt;/a&gt;
+- Identify a Beta distribution to formalize your prior using functions from `BayesRules` package
+
+--
+
+- Given some data visualize your prior, likelihood, and posterior
+
+--
+
+- Investigate the influence of different prior choices on your posterior
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
