@@ -19,6 +19,23 @@ output:
         </div>`
 ---
 
+
+class: top
+
+## As you get settled in
+
+- Download the whole workshop repo:    
+    - https://github.com/bayes-rules/uscots-2021
+    - Click on the green "Code" button.
+    - Select "download zip".
+    
+
+- Open RStudio (or R).
+
+- Say hello in the chat!
+
+---
+
 class: middle center
 
 ```{r echo=FALSE, message=FALSE}
@@ -91,6 +108,38 @@ class: middle
 knitr::include_graphics("img/bayes-rules-hex.png")
 ```
 
+---
+
+class: top
+
+## Workshop goals
+
+Two hours isn't much time! Here are some of our goals:
+
+- Learn a little bit about Bayes (especially if you're new to the topic).
+
+- Think about how you might incorporate Bayes into your teaching.
+
+- Meet other people that are also thinking about Bayes.
+
+- Familiarize yourself with the *Bayes Rules!* book and `bayesrules` package.
+
+---
+
+class: top
+
+## Workshop plan
+
+
+- Introduction and motivation
+
+- Hands on time with breakout rooms:    
+    - Bayesian foundations    
+    - Posterior simulation & analysis
+    - Regression
+
+- Breakout room etiquette: be nice
+
 
 
 ---
@@ -146,6 +195,8 @@ class: middle
 
 - [STATS 115 at UC Irvine](https://www.stats115.com)
 
+- [SDS 390 at Smith College](https://www.dropbox.com/sh/qdmxfapt9vv08xm/AABWnhZNmqOdjnaVyGJ5VLyEa?dl=0)
+
 
 ---
 
@@ -193,7 +244,7 @@ class: top
 ## Quiz yourself!
 
 
-When flipping a fair coin, we say that 'the probability of flipping Heads is 0.5.' How do you interpret this probability?
+The probability of flipping Heads on a fair coin is 0.5. How do you interpret this probability?
 
 a. If I flip this coin over and over, roughly 50% will be Heads.
 
@@ -217,13 +268,13 @@ class: top
 ## Quiz yourself!
 
 
-A pollster claims that 'candidate A has a 0.9 probability of winning the upcoming election'. How do you interpret this probability?
+'Candidate A has a 0.9 probability of winning the upcoming election'. How do you interpret this probability?
 
 a. If we observe the election over and over, candidate A will win roughly 90% of the time.
 
 b. Candidate A is much more likely to win than to lose.    
 
-c. The pollster's calculation is wrong. Candidate A will either win or lose, thus their probability of winning can only be 0 or 1.
+c. This calculation is wrong. Candidate A will either win or lose, thus their probability of winning can only be 0 or 1.
 
 
 --
@@ -242,12 +293,8 @@ class: top
 ## Quiz yourself!
 
 
-Consider two claims:
-
-- Zuofu claims that he can predict the outcome of a coin flip.
-
-- Kavya claims that she can distinguish natural and artificial sweeteners.
-
+Zuofu claims that he can predict the outcome of a coin flip.   
+Kavya claims that she can distinguish natural and artificial sweeteners.
 Both Zuofu and Kavya succeeded in 10 out of 10 experiments to test their claims. What do you conclude?
 
 a. You're more confident in Kavya's claim than Zuofu's.
@@ -255,13 +302,11 @@ a. You're more confident in Kavya's claim than Zuofu's.
 b. The evidence supporting Zuofu's claim is just as strong as the evidence supporting Kavya's claim.
 
 
----
-class: top
+--
 
+<br>
 
-## Score yourself:
-
-a = 3, b = 1
+**Score yourself:** a = 3, b = 1
 
 
 
