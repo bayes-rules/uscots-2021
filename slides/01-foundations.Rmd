@@ -94,7 +94,7 @@ class: top
 
 --
 
-- __Breakout rooms: `00-intro.Rmd`__ 
+- __Breakout rooms__: <a href = "https://github.com/bayes-rules/uscots-2021/blob/main/R/01-foundations.R">01-foundations.R</a>
 - Identify a Beta distribution to formalize your prior using functions from `BayesRules` package
 
 --
