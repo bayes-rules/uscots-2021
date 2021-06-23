@@ -1,7 +1,7 @@
 ---
 title: "Teaching Bayesian Statistics at the Undergraduate Level\n\nAn Overview"
 subtitle: "USCOTS workshop"
-author: "Mine Dogucu, Alicia A. Johnson, and Miles Ott"
+author: "Mine Dogucu, Alicia Johnson, and Miles Ott"
 date: "2021-06-24"
 output:
   xaringan::moon_reader:
@@ -101,11 +101,7 @@ class: middle
 
 - Bayesian methods are becoming more popular
 
---
-
 - Computing advances and reevaluation of subjectivity
-
---
 
 - Lack of resources for the target audience (advanced undergraduate statistics/ds majors or similarly trained learners)
 
@@ -117,15 +113,9 @@ class: middle
 
 - Checking intuition 
 
---
-
 - Active learning (quizzes and applications)
 
---
-
 - Computing & math together
-
---
 
 - Compute for a single case, then use built-in functions
 
@@ -137,15 +127,9 @@ class: middle
 
 - Open-Access
 
---
-
 - Visual access (color-palette and alternate text)
 
---
-
 - Citations
-
---
 
 - Datasets
 
@@ -158,46 +142,163 @@ class: middle
 
 - [Undergraduate Bayesian Education Resources](https://undergrad-bayes.netlify.app/)
 
---
-
 - [Undergraduate Bayesian Education Network](https://undergrad-bayes.netlify.app/network.html)
-
---
 
 - [STATS 115 at UC Irvine](https://www.stats115.com)
 
+
 ---
 
+class: top
 
-class: middle
+## Unit Overview
 
-### Overview
+.pull-left[
 
-Bayesian Foundations (Unit 1)
+1: Bayesian Foundations
 
---
+
+<hr>
+
+2: Posterior Simulation & Analysis
 
 <hr>
 
 
-Posterior Simulation and Analysis (Unit 2)
+3: Regression and Classification
 
---
 
 <hr>
 
-Bayesian Regression and Classification (Unit 3)
+4: Hierarchical Models
+
+
+]
+
+.pull-right[
+
+
+```{r, out.width = "95%", echo = FALSE}
+knitr::include_graphics("img/USCOTS.png")
+```
+
+]
+
+
+---
+
+class: top
+
+
+## Quiz yourself!
+
+
+When flipping a fair coin, we say that 'the probability of flipping Heads is 0.5.' How do you interpret this probability?
+
+a. If I flip this coin over and over, roughly 50% will be Heads.
+
+b. Heads and Tails are equally plausible.
+
+c. Both a and b make sense.
 
 --
 
-<hr> 
 
-Hierarchical Bayesian Models (Unit 4)
+<br>
+
+
+**Score yourself: a = 1, b = 3, c = 2**
+
 
 ---
-class: middle center
+class: top
+
+
+## Quiz yourself!
+
+
+A pollster claims that 'candidate A has a 0.9 probability of winning the upcoming election'. How do you interpret this probability?
+
+a. If we observe the election over and over, candidate A will win roughly 90% of the time.
+
+b. Candidate A is much more likely to win than to lose.    
+
+c. The pollster's calculation is wrong. Candidate A will either win or lose, thus their probability of winning can only be 0 or 1.
+
+
+--
+
+<br>
+
+
+**Score yourself: a = 1, b = 3, c = 1**
 
 
 
-[Quiz yourself](https://www.bayesrulesbook.com/chapter-1.html#quiz-yourself-1)
+---
+class: top
+
+
+## Quiz yourself!
+
+
+Consider two claims:
+
+- Zuofu claims that he can predict the outcome of a coin flip.
+
+- Kavya claims that she can distinguish natural and artificial sweeteners.
+
+Both Zuofu and Kavya succeeded in 10 out of 10 experiments to test their claims. What do you conclude?
+
+a. You're more confident in Kavya's claim than Zuofu's.
+
+b. The evidence supporting Zuofu's claim is just as strong as the evidence supporting Kavya's claim.
+
+
+---
+class: top
+
+
+## Score yourself:
+
+a = 3, b = 1
+
+
+
+---
+class: top
+
+
+## Quiz yourself!
+
+If you tested positive for a very rare disease and only got to ask the doctor one question, which would it be?
+
+a. What's the chance that I actually have the disease?
+
+b. If in fact I don't have the disease, what's the chance that I would’ve gotten this positive test result?
+
+
+--
+
+<br>
+
+
+**Score yourself: a = 3, b = 1**
+
+
+---
+
+class: top
+
+
+## Score yourself!
+
+
+```{r, out.width = "90%", echo = FALSE}
+knitr::include_graphics("img/spectrum.png")
+```
+
+
+
+
 
