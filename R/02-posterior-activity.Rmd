@@ -1,0 +1,450 @@
+---
+title: "Posterior Simulation & Analysis"
+author: "Alicia Johnson"
+output: 
+  html_document:
+    css: "activity-style.css"
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.height = 3,
+                      fig.width = 5,
+                      fig.align = 'center', 
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+
+\
+\
+
+
+**Getting started**
+
+- We have provided an `.Rmd` file for this activity: `R/02-posterior-activity.Rmd`.
+
+- If you prefer to use an `R` file, first make sure that you're working within your directory with the repo files, and then run the following from the Console:    
+    `knitr::purl("R/02-posterior-activity.Rmd", "R/02-posterior-activity.R")`    
+     
+     This will create an R file with the activity R code. For the corresponding discussion and prompts, see the `R/02-posterior-activity.html` file in the repo.
+     
+- There are some solutions that will appear in the knit html. Avoid knitting if you want to avoid solutions!
+     
+
+\
+\
+
+
+
+# Background
+
+We'll continue our analysis of $\pi$, the proportion of films that pass the Bechdel test. Let's start with a Beta(2,2) prior model of $\pi$. Upon observing data that 9 of 20 films passed the test, our **posterior** model of $\pi$, Beta(11, 13), is shown below:
+
+
+```{r}
+library(bayesrules)
+plot_beta_binomial(alpha = 2, beta = 2, y = 9, n = 20)
+summarize_beta_binomial(alpha = 2, beta = 2, y = 9, n = 20)
+```
+
+
+\
+
+
+Now **pretend** that we weren't able to mathematically specify this posterior model. Instead, we'll **approximate** this model using Markov chain Monte Carlo (MCMC) simulations. The *Bayes Rules!* book explores how to simulate posterior models using the `rstan` and `rstanarm` packages. For the purposes of this workshop and focusing on how to *use* Markov chain output, we'll import three separate Markov chains that have already been simulated for us. If curious, you can find the simulation code at `R/02-prep.R`.
+
+```{r}
+# Import 3 separate Markov chains
+# If your working directory is the R workshop folder:
+chain_1 <- read.csv("chain_1.csv")
+chain_2 <- read.csv("chain_2.csv")
+chain_3 <- read.csv("chain_3.csv")
+
+# If that doesn't work:
+# chain_1 <- read.csv("https://www.macalester.edu/~ajohns24/data/workshops/chain_1.csv")
+# chain_2 <- read.csv("https://www.macalester.edu/~ajohns24/data/workshops/chain_2.csv")
+# chain_3 <- read.csv("https://www.macalester.edu/~ajohns24/data/workshops/chain_3.csv")
+```
+
+
+
+
+
+
+\
+\
+
+
+
+# Markov chain diagnostics
+
+\
+
+Before we can trust any Markov chain *approximation* of a posterior model, we must perform some chain *diagnostics*. We'll explore a few visual diagnostics. These are presented in more depth, and supplemented by numerical diagnostics, in the book.
+
+
+\
+\
+
+
+
+
+**R Exercise: trace plots**    
+
+We can think of a Markov chain as a *tour* around posterior plausible $\pi$ values. We want that tour to:
+
+- spend more time exploring more posterior plausible values of $\pi$, and less time exploring less plausible values; and
+
+- behave as randomly as possible.
+
+*Trace plots* provide a quick glimpse into a Markov chain tour, plotting the sampled $\pi$ values (y-axis) in the order we observed them (x-axis). Compare and contrast trace plots for our 3 Markov chains.
+
+```{r}
+# Adapt this code for the other chains
+library(bayesplot)
+mcmc_trace(chain_1)
+```
+
+
+
+\
+\
+
+
+
+**R Exercise: autocorrelation plots**
+
+Though Markov chains are inherently dependent, we'd like them to behave as randomly as possible (random samples are great!). That is, we'd like the *autocorrelation* in the chain values to fade quickly. To assess this goal, compare and contrast *autocorrelation plots* for our 3 chains. These plot the autocorrelation (y-axis) for pairs of chain values at each lag (x-axis): the autocorrelation between chain values that are 1 step apart (lag 1), chain values that are 2 steps apart (lag 2), etc.
+
+```{r}
+# Adapt this code for the other chains
+mcmc_acf(chain_1)
+```
+
+
+
+
+\
+\
+
+
+**R Exercise: density plots**
+
+Whereas trace plots illuminate a Markov chain's *longitudinal* behavior, we also want to examine the distribution of values that a chain visits along its tour. Compare and contrast *density plots* of the three Markov chains. For illustrative purposes only, we'll compare our Markov chain density plots to the actual Beta(11, 13) posterior. (In practice, we would only simulate a posterior if we didn't know what it was, thus wouldn't have this luxury!)
+
+```{r}
+# Adapt this code for the other chains
+library(ggplot2)
+mcmc_dens(chain_1) + 
+  stat_function(fun = dbeta, args = list(11, 13)) + 
+  xlim(0, 1)
+```
+
+
+
+
+\
+\
+
+
+
+**Question:**    
+
+- Reflecting upon the diagnostics, which of the 3 chains do you prefer?
+- Even if we hadn't had the luxury of comparing the density plots to the actual posterior, how might you have come to this conclusion from the chain plots alone?
+- What are the main drawbacks of the two chains that you don't prefer?
+
+
+
+
+\
+\
+
+
+
+
+
+# Posterior approximation
+
+
+We hope you agree that `chain_1` is best! `chain_2` is too short and `chain_3` has too much autocorrelation. Let's use `chain_1` to *approximate* various features of the posterior model.
+
+
+\
+\
+
+
+
+**R Exercise: Posterior Means**    
+
+Per the above `summarize_beta_binomial()` output, the actual Beta(11, 13) posterior mean estimate of $\pi$ is 0.4583. That is, we expect that roughly 45.83% of films pass the Bechdel test. Use your `chain_1` values to *estimate* this posterior mean. How close is it?!
+
+```{r}
+# Approximate the posterior mean from chain_1
+# If you get stuck, scroll down
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+# Answer
+library(dplyr)
+chain_1 %>% 
+  summarize(mean(pi))
+```
+
+
+
+
+
+
+\
+\
+
+
+
+**R Exercise: Posterior Credible Intervals**    
+
+The *actual* 80% posterior credible interval for $\pi$ is (0.330, 0.589). That is, there's an 80% chance that somewhere between 33% and 58.9% of films pass the Bechdel test: 
+
+```{r}
+qbeta(c(0.1, 0.9), 11, 13)
+```
+
+Use your `chain_1` values to *estimate* this credible interval. How close is it?!
+
+
+```{r}
+# Approximate the 80% posterior credible interval from chain_1
+# If you get stuck, scroll down
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+# Answer
+chain_1 %>% 
+  summarize(quantile(pi, c(0.1, 0.9)))
+```
+
+
+
+
+
+\
+\
+
+
+
+\
+\
+
+
+
+**R Exercise: Posterior Probabilities**    
+
+Your friend claims that more than 50% of films pass the Bechdel test. The *actual* posterior probability of this claim is 0.339, pretty slim: 
+
+```{r}
+pbeta(0.5, 11, 13, lower = FALSE)
+```
+
+Use your `chain_1` values to *estimate* this posterior probability. How close is it?!
+
+
+```{r}
+# Approximate the posterior probability that pi > 0.5
+# If you get stuck, scroll down
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+# Answer
+chain_1 %>% 
+  summarize(mean(pi > 0.5))
+```
+
+
+
+\
+\
+
+
+
+**R & THEORY CHALLENGE: Posterior Prediction**    
+
+Suppose you watch *10* more recent films. Use `chain_1` to simulate, plot, and discuss a *posterior predictive model* of Y, the number of these that pass the Bechdel test. In doing so, note that Y has a Bin(10, $\pi$) model. Hints and a solution are below.
+
+```{r}
+
+```
+
+
+Hints:
+
+- `chain_1` includes 5000 posterior plausible values of `pi`
+- for a full range of possible outcomes, simulate one outcome Y from each `pi` value
+- `rbinom(5000, size = ___, prob = __)`
+- scroll down for a solution
+
+
+
+
+
+
+
+
+
+```{r}
+# A solution
+chain_1 %>% 
+  mutate(y = rbinom(5000, size = 10, prob = pi)) %>% 
+  ggplot(aes(x = y)) + 
+    geom_bar()
+```
+
+
+
+
+
+\
+\
+\
+\
+
+
+
+# OPTIONAL: rstan
+
+IF you're curious about how we simulated these chains, read on. If not, no problem! In these last exercises, we'll explore how to simulate the Beta-Binomial model in `rstan`. There are two essential steps to all __rstan__ analyses: 
+
+1. define the Bayesian model structure in __rstan__ notation; then
+2. simulate the posterior.
+
+
+\
+\
+
+
+**R Exercise: step 1**    
+
+Run the chunk below which defines our Beta-Binomial model structure (the prior and data). Notice that this depends upon three aspects:
+
+- `data`    
+    Data Y is the observed number of successes in 20 trials. Since __rstan__ isn't a mind reader, we must specify that Y is an _integer_ between 0 and 20.
+    
+- `parameters`    
+    The model depends upon parameter $\pi$, or `pi` in __rstan__ notation.  We must specify that $\pi$ can be any _real_ number between 0 and 1.
+
+- `model`    
+    The model is defined by the Bin(20, $\pi$) model for data Y and the Beta(2,2) prior for $\pi$. We specify these using `binomial()` and `beta()`.
+
+```{r eval = FALSE}
+# STEP 1: DEFINE the model
+library(rstan)
+bb_model <- "
+  data {
+    int<lower = 0, upper = 20> Y;
+  }
+  parameters {
+    real<lower = 0, upper = 1> pi;
+  }
+  model {
+    Y ~ binomial(20, pi);
+    pi ~ beta(2, 2);
+  }
+"
+```
+
+
+\
+\
+
+
+
+
+
+**R Exercise: step 2**    
+
+In __step 2__, we *simulate* the posterior using the `stan()` function. _Very_ loosely speaking, `stan()` designs and runs an MCMC algorithm to produce an approximate sample from the Beta-Binomial posterior. What type of information do we have to provide here?!
+
+```{r eval = FALSE}
+chain_1 <- stan(model_code = bb_model, data = list(Y = 9), 
+                chains = 1, iter = 5000*2, seed = 84735)
+```
+
+
+
+
+\
+\
+
+
+
+**R Exercise: diagnostics**    
+
+Check out some `chain_1` plots. Looks good!
+
+```{r}
+mcmc_trace(chain_1)
+mcmc_dens(chain_1)
+```
+
+
+
+\
+\
+
+
+**R Exercise: play around**    
+
+Play around with the `bb_sim` simulation step. Try increasing the number of `chains` from 1 to 4. What do you think is going on here? What might be the advantages to using 4 chains?
+
+```{r eval = FALSE}
+new_chain <- ???
+mcmc_trace(new_chain)
+mcmc_dens_overlay(new_chain)
+```
+
+Try increasing `iter` from `5000*2` to `10000*2`. Construct some plots and explain what this does.
+
+Switch up the model! How can we change the syntax to simulate the posterior model of $\pi$ if we used a Beta(1,4) prior and observed that 23 of 50 films passed the Bechdel test?
+
+

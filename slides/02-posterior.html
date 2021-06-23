@@ -54,6 +54,41 @@ class: top
 
 - Chapter 8: Posterior Inference and Prediction
 
+---
+
+class: top
+
+# Activity
+
+Let `\(\pi\)` be the proportion of films that pass the Bechdel test. Starting with a Beta(2,2) **prior** model for `\(\pi\)`, and **data** that 9 of 20 films passed the test, our **posterior** model of `\(\pi\)` is Beta(11, 13):
+
+
+&lt;img src="02-posterior_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+class: top
+
+# Pretend
+
+Now **PRETEND** that we weren't able to mathematically specify our posterior. Instead we can **approximate** this posterior using a Markov chain Monte Carlo sample:
+
+
+`$$\left\lbrace \pi^{(1)}, \pi^{(2)}, \ldots, \pi^{(N)} \right\rbrace$$`
+
+--
+
+- the `\(\pi\)` values are *not random*: `\(\pi^{(i)}\)` depends upon `\(\pi^{(i-1)}\)` depends upon `\(\pi^{(i-2)}\)` depends upon...(and so on)
+
+--
+
+- the `\(\pi\)` values are *not* drawn from the Beta(11, 13) posterior
+
+--
+
+- but *mathemagically*, when done well, the Markov chain sample will provide a reasonable *approximation* of the posterior
+
 
 
 ---
@@ -61,15 +96,15 @@ class: top
 class: top
 
 
-# Activity
+# Activity goals
 
-- Get your hands on some Markov chain Monte Carlo samples.
+- Get your hands on some MCMC samples.
 
-- Determine whether these are trustworthy, i.e. perform some MCMC diagnostics.
+- Perform some MCMC *diagnostics* (can we trust our chain?).
 
 - Use an MCMC sample to *approximate* features of the posterior model.
 
-- Play around with an MCMC algorithm. (You most likely won't get here -- this is just for future reference.)
+- Be patient with yourself! Many exercises require you to tap into your intuition. Solutions are there to help when wanted. 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
