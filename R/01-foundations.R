@@ -9,6 +9,8 @@
 # -these two women talk to each other; and
 # -they talk about something besides a man.
 #
+# A movie that satisfies these criteria is said
+# to have passed the Bechdel Test
 #--------------------------------------------------#
 
 
@@ -18,7 +20,11 @@
 
 # ~Question~: If you were to make a distribution
 # for the proportion (pi) that would pass the
-# Bechdel test what would it look like?
+# Bechdel test what would it look like? 
+# 
+# - Where would it be centered (approximately)?
+# - Would it be symmetric or skewed?
+# - How sure are you about pi?
 
 
 # ~Exercise with R~:
@@ -26,6 +32,12 @@
 # function below to produce a plot of 
 # your prior distribution for pi: the proportion
 # of recent movies that pass the Bechdel test
+#
+# Note: this may take some playing around
+# before you land on a plot that is close
+# to your prior understanding of pi. 
+# It is OK (and encouraged!) to experiment and 
+# try multiple values for the parameters!
 
 library(bayesrules)
 plot_beta(2,2) 
@@ -33,7 +45,7 @@ plot_beta(2,2)
 
 # ~Exercise with R~:
 # You just collected some data on 20 recent 
-# movies. It turns out that 7 of the 20 movies
+# movies. It turns out that 9 of the 20 movies
 # pass the Bechdel test. Run the line of code
 # with the question mark to learn about the
 # parameters of the plot_beta_binomial()
@@ -53,7 +65,20 @@ plot_beta_binomial(2,2,0,2)
 # function. Modify 
 # the summarize_beta_binomial() below
 # to incorporate information on your 
-# prior and that 7 out of 20 movies 
+# prior and that 9 out of 20 movies 
 # passed the Bechdel test.
 
+summarize_beta_binomial(2,2,0,2)
+
+
+# ~Exercise with R~: Influence of the prior.
+#
+# Modify the code below to reflect our data
+# Keeping our data the same (9 out of 20)
+# but trying out different priors. 
+#
+# How does your prior distribution impact
+# The posterior distribution?
+
+plot_beta_binomial(2,2,0,2)
 summarize_beta_binomial(2,2,0,2)
