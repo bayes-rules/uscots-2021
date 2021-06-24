@@ -58,23 +58,7 @@ class: middle
 knitr::include_graphics("img/bike.jpeg")
 ```
 
----
-
-## Modeling Process
-
-- Tuning prior models
-- Simulating the posterior
-- Posterior prediction
-- Model evaluation
 
 ---
 
 
----
-
-## Discussion Questions
-
-
-Once you complete the regression activity
-
-- What you can/cannot include 

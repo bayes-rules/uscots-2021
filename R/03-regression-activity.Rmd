@@ -35,54 +35,46 @@ knitr::opts_chunk$set(echo = TRUE,
 
 
     
-
-## Exploratory analysis
-
+    
 ```{r message=FALSE, warning=FALSE}
 # Load packages
 library(bayesrules)
 library(tidyverse)
-library(rstan)
 library(rstanarm)
 library(bayesplot)
-library(tidybayes)
 library(janitor)
-library(broom.mixed)
 ```
 
+# Background
 
-```{r}
-# Load data
-data(bikes)
-
-# Construct a scatterplot
-ggplot(bikes, aes(x = temp_feel, y = rides)) + 
-  geom_point(size = 0.5) + 
-  geom_smooth(method = "lm", se = FALSE)
-```
+*Capital Bikeshare* is a bike sharing service in the Washington, D.C. area.
+Using the `bikes` data, our analysis will focus on the relationship between number of bikeshare rides ($Y$: `rides`), and temperature ($X$: temp_feel). We will model:
 
 
-Based on the plot above, comment on the relationship between `temp_feel` and `rides`. 
-Consider whether the relationship is: 1) linear; 2) positive; 3) strong or not.
+
+$$\mu_i = \beta_0 + \beta_1X_i$$
+
+$\beta_0$ is the typical ridership on days in which the temperature was 0 degrees ( $X_i$=0). It is not interpretable in this case.
+
+$\beta_1$ is the typical change in ridership for every one unit increase in temperature.
+
+\begin{split}
+Y_i | \beta_0, \beta_1, \sigma & \stackrel{ind}{\sim} N\left(\mu_i, \sigma^2\right) \;\; \text{ with } \;\; \mu_i = \beta_0 + \beta_1X_i \; .\\
+\end{split}
 
 
-## Building the regression model
 
-## Tuning prior models for regression parameters
+**likelihood:** $Y_i | \beta_0, \beta_1, \sigma \;\;\;\stackrel{ind}{\sim} N\left(\mu_i, \sigma^2\right)\text{ with } \mu_i = \beta_0 + \beta_1X_i$
 
-(some comment about pretending that we haven't yet seen the data)
+**prior models:**
 
-```{r}
-plot_normal(mean = 5000, sd = 1000) + 
-  labs(x = "beta_0c", y = "pdf")
-plot_normal(mean = 100, sd = 40) + 
-  labs(x = "beta_1", y = "pdf")
-plot_gamma(shape = 1, rate = 0.0008) + 
-  labs(x = "sigma", y = "pdf")
-```
+$\beta_0\sim N(m_0, s_0^2 )$  
+$\beta_1\sim N(m_1, s_1^2 )$  
+$\sigma \sim \text{Exp}(l)$
 
+Since we have done some hands-on activities before this related to setting priors, in this activity we will follow along with some uninformative priors together and focus mostly on the posterior. 
 
-## Posterior simulation
+# Posterior Simulation
 
 ```{r}
 bike_model <- stan_glm(rides ~ temp_feel, data = bikes,
@@ -93,24 +85,133 @@ bike_model <- stan_glm(rides ~ temp_feel, data = bikes,
                        chains = 4, iter = 5000*2, seed = 84735, refresh = FALSE)
 ```
 
+**Exercise: stan_glm()**
+
+Can you identify each argument of the `stan_glm()` function and what their purpose is?
+
 
 ## Interpreting the posterior
 
+**bayesplot** package provides many plotting functions that can help us quickly examine the MCMC draws. 
 
-## Posterior prediction
 
-<div id= "attention"> Here is some important note </div>
 
-## More than one predictor
+```{r fig.width=8}
+mcmc_trace(bike_model, size = 0.1)
+```
 
-### Posterior Simulation
+**Exercise: traceplots**  
 
-### Model Evaluation
+Do the traceplots provide evidence that chains are stable?
 
-## Moving beyond normal
+```{r fig.width=6}
+mcmc_dens(bike_model)
+```
 
-If you are done early and want to look around for further modeling contexts, feel free to check out [Poisson and Negative Binomial Regression](https://www.bayesrulesbook.com/chapter-12.html), [Logistic Regression](https://www.bayesrulesbook.com/chapter-13.html), and/or [Naive Bayes Classification](https://www.bayesrulesbook.com/chapter-14.html) chapters in the book.
+**Exercise: density plots** 
 
-## Discussion
+Looking at the density plots of the posterior simulation what can you conclude about the intercept and the slope? 
+Do you think we have enough evidence to believe that the relationship between ridership and temperature is a positive one?
+
+
+# Posterior prediction
+
+Our goal in this part is to simulate 20,000 predictions of ridership on a 75 degree day.
+First, let's get our model results into a data frame.
+
+```{r}
+# Store the 4 chains for each parameter in 1 data frame
+bike_model_df <- as.data.frame(bike_model)
+
+# Check it out
+nrow(bike_model_df)
+
+head(bike_model_df, 3)
+```
+
+We have 20000 rows one for each iteration and 3 columns one for each parameter.
+Let's focus on the first row of this data
+
+```{r}
+first_set <- head(bike_model_df, 1)
+first_set
+```
+
+```{r echo = FALSE}
+b01  <- round(first_set$`(Intercept)`)
+b11  <- round(first_set$temp_feel,2)
+sig1 <- round(first_set$sigma)
+pred <- b01 + b11 * 75
+```
+
+Under this particular scenario, $\left(\beta_0^{(1)}, \beta_1^{(1)}, \sigma^{(1)}\right) = (`r b01`, `r b11`, `r sig1`)$, the average ridership at a given temperature is defined by
+
+$$\mu = \beta_0^{(1)} + \beta_1^{(1)} X = `r b01` + `r b11`X \; .$$
+
+As such, we'd expect an __average__ of $\mu = `r round(pred)`$ riders on a 75 degree day:
+
+```{r}
+mu <- first_set$`(Intercept)` + first_set$temp_feel * 75
+mu
+```
+
+To capture the __sampling variability__ around this average, i.e. the fact that not all 75 degree days have the same ridership, we can simulate our first official prediction $Y_{\text{new}}^{(1)}$ by taking a random draw from the Normal model specified by this first parameter set:
+
+$$Y_{\text{new}}^{(1)} | \beta_0, \beta_1, \sigma  \; \sim \; N\left(`r pred`, `r sig1`^2\right) \; .$$
+
+```{r echo = FALSE}
+set.seed(84735)
+y_new <- rnorm(1, mean = mu, sd = first_set$sigma)
+```
+
+Taking a draw from this model using `rnorm()`, we happen to observe an above average `r round(y_new)` rides on the 75 degree day:
+
+```{r}
+set.seed(84735)
+y_new <- rnorm(1, mean = mu, sd = first_set$sigma)
+y_new
+```
+
+Now let's do this 19,999 more times.
+That is, let's follow the same two-step process to simulate a prediction of ridership from each of the 20,000 sets of regression parameters $i$ in `bike_model_df`: (1) calculate the _average_ ridership on 75 degree days, $\mu^{(i)} = \beta_0^{(i)} + \beta_1^{(i)}\cdot 75$; then (2) sample from the Normal model centered at this average with standard deviation $\sigma^{(i)}$:
+
+```{r}
+# Predict rides for each parameter set in the chain
+set.seed(84735)
+predict_75 <- bike_model_df %>% 
+  mutate(mu = `(Intercept)` + temp_feel*75,
+         y_new = rnorm(20000, mean = mu, sd = sigma))
+```
+
+```{r}
+head(predict_75, 3)
+```
+
+
+```{r}
+# Plot the posterior model of the typical ridership on 75 degree days
+ggplot(predict_75, aes(x = mu)) + 
+  geom_density()
+
+# Plot the posterior predictive model of tomorrow's ridership
+ggplot(predict_75, aes(x = y_new)) + 
+  geom_density()
+```
+
+**Exercise: evaluating predictions**
+
+Now that we have predictions for ridership for a day, how would you assess if our prediction is a good one or not?
+Remember that, all models are wrong^[George Box]. 
+It might make more sense to discuss how you would assess how *bad* the prediction is.
+We will not have R code for this in the workshop as we wrap things up but answering it conceptually in your groups would be good.
+
+
+# Discussion
+
+Please take a few minutes to plan what is ahead for you in your teaching and discuss in your breakout room.
+
+- Will you be teaching a Bayesian course or incorporating Bayesian concepts in your courses?
+- What activities (among those we covered or another activity that you know/thought of) would you take to your classroom?
+- What computing infrastructure do you plan on using for your course? 
 
 
