@@ -38,7 +38,7 @@ class: top
 
 class: middle center
 
-```{r echo=FALSE, message=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(bayesrules)
 library(rstanarm)
