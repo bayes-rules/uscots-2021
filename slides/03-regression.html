@@ -24,6 +24,9 @@ Bayesian Regression and Classification
 
 class: middle
 
+
+
+
 ## Models
 
 .pull-left[
@@ -54,28 +57,33 @@ class: middle
 
 ---
 
-&lt;img src="img/bike.jpeg" width="40%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/bike.jpeg" width="20%" style="display: block; margin: auto;" /&gt;
+
+`bikes`
+
+
+```
+## Rows: 500
+## Columns: 2
+## $ rides     &lt;int&gt; 654, 1229, 1454, 1518, 1362, 891, 1280, 1220, 1137, 1368, 13…
+## $ temp_feel &lt;dbl&gt; 64.72625, 49.04645, 51.09098, 52.63430, 50.79551, 46.60286, …
+```
 
 ---
 
-## Modeling Process
+## Models
 
-- Tuning prior models
-- Simulating the posterior
-- Posterior prediction
-- Model evaluation
+**likelihood:** `\(Y_i | \beta_0, \beta_1, \sigma \;\;\;\stackrel{ind}{\sim} N\left(\mu_i, \sigma^2\right)\text{ with } \mu_i = \beta_0 + \beta_1X_i\)`
 
----
+**prior models:**
 
+`\(\beta_0\sim N(m_0, s_0^2 )\)`  
+`\(\beta_1\sim N(m_1, s_1^2 )\)`  
+`\(\sigma \sim \text{Exp}(l)\)`
 
----
+&lt;hr&gt;
 
-## Discussion Questions
-
-
-Once you complete the regression activity
-
-- What you can/cannot include 
+Goals:  simulating the posterior &amp; posterior prediction
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

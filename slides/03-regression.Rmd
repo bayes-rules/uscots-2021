@@ -22,6 +22,12 @@ output:
 
 class: middle
 
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)
+library(bayesrules)
+```
+
+
 ## Models
 
 .pull-left[
@@ -54,11 +60,30 @@ class: middle
 
 ---
 
-```{r echo=FALSE, fig.align='center', out.width="40%"}
+```{r echo=FALSE, fig.align='center', out.width="20%"}
 knitr::include_graphics("img/bike.jpeg")
 ```
 
+`bikes`
+
+```{r echo=FALSE}
+bikes %>% 
+  select(rides, temp_feel) %>% 
+  glimpse()
+```
 
 ---
 
+## Models
 
+**likelihood:** $Y_i | \beta_0, \beta_1, \sigma \;\;\;\stackrel{ind}{\sim} N\left(\mu_i, \sigma^2\right)\text{ with } \mu_i = \beta_0 + \beta_1X_i$
+
+**prior models:**
+
+$\beta_0\sim N(m_0, s_0^2 )$  
+$\beta_1\sim N(m_1, s_1^2 )$  
+$\sigma \sim \text{Exp}(l)$
+
+<hr>
+
+Goals:  simulating the posterior & posterior prediction

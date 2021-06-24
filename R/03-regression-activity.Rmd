@@ -58,11 +58,6 @@ $\beta_0$ is the typical ridership on days in which the temperature was 0 degree
 
 $\beta_1$ is the typical change in ridership for every one unit increase in temperature.
 
-\begin{split}
-Y_i | \beta_0, \beta_1, \sigma & \stackrel{ind}{\sim} N\left(\mu_i, \sigma^2\right) \;\; \text{ with } \;\; \mu_i = \beta_0 + \beta_1X_i \; .\\
-\end{split}
-
-
 
 **likelihood:** $Y_i | \beta_0, \beta_1, \sigma \;\;\;\stackrel{ind}{\sim} N\left(\mu_i, \sigma^2\right)\text{ with } \mu_i = \beta_0 + \beta_1X_i$
 

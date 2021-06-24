@@ -272,9 +272,6 @@ library(janitor)</code></pre>
 <p><span class="math display">\[\mu_i = \beta_0 + \beta_1X_i\]</span></p>
 <p><span class="math inline">\(\beta_0\)</span> is the typical ridership on days in which the temperature was 0 degrees ( <span class="math inline">\(X_i\)</span>=0). It is not interpretable in this case.</p>
 <p><span class="math inline">\(\beta_1\)</span> is the typical change in ridership for every one unit increase in temperature.</p>
-<span class="math display">\[\begin{split}
-Y_i | \beta_0, \beta_1, \sigma &amp; \stackrel{ind}{\sim} N\left(\mu_i, \sigma^2\right) \;\; \text{ with } \;\; \mu_i = \beta_0 + \beta_1X_i \; .\\
-\end{split}\]</span>
 <p><strong>likelihood:</strong> <span class="math inline">\(Y_i | \beta_0, \beta_1, \sigma \;\;\;\stackrel{ind}{\sim} N\left(\mu_i, \sigma^2\right)\text{ with } \mu_i = \beta_0 + \beta_1X_i\)</span></p>
 <p><strong>prior models:</strong></p>
 <p><span class="math inline">\(\beta_0\sim N(m_0, s_0^2 )\)</span><br />
