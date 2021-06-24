@@ -170,7 +170,7 @@ mcmc_dens(chain_1) +
 # Posterior approximation
 
 
-We hope you agree that `chain_1` is best! `chain_2` is too short and `chain_3` has too much autocorrelation. Let's use `chain_1` to *approximate* various features of the posterior model.
+We hope you agree that `chain_1` is best! `chain_2` is too short, or the sample too small, to provide an accurate approximation of the posterior. `chain_3` has too much autocorrelation, thus struggles to explore the entire range of posterior plausible values in a manner proportional to their plausibility. Let's use `chain_1` to *approximate* various features of the posterior model.
 
 
 \
@@ -200,8 +200,17 @@ Per the above `summarize_beta_binomial()` output, the actual Beta(11, 13) poster
 
 
 
+
+
+
+
+
+
+
+
 ```{r}
-# Answer
+# Answer: We can approximate the posterior mean 
+# by the mean of our Markov chain sample!
 library(dplyr)
 chain_1 %>% 
   summarize(mean(pi))
@@ -246,8 +255,11 @@ Use your `chain_1` values to *estimate* this credible interval. How close is it?
 
 
 
+
+
 ```{r}
-# Answer
+# Answer: We can approximate the posterior quantiles 
+# by the quantiles of our Markov chain sample!
 chain_1 %>% 
   summarize(quantile(pi, c(0.1, 0.9)))
 ```
@@ -295,8 +307,20 @@ Use your `chain_1` values to *estimate* this posterior probability. How close is
 
 
 
+
+
+
+
+
+
+
+
+
+
 ```{r}
-# Answer
+# Answer: We can approximate the posterior probability 
+# by the proportion of our Markov chain sample values
+# that fall above 0.5
 chain_1 %>% 
   summarize(mean(pi > 0.5))
 ```
@@ -308,9 +332,13 @@ chain_1 %>%
 
 
 
-**R & THEORY CHALLENGE: Posterior Prediction**    
+**CHALLENGE: Posterior Prediction**    
 
-Suppose you watch *10* more recent films. Use `chain_1` to simulate, plot, and discuss a *posterior predictive model* of Y, the number of these that pass the Bechdel test. In doing so, note that Y has a Bin(10, $\pi$) model. Hints and a solution are below.
+Suppose you watch *10* more recent films. Let Y be the number of these that pass the Bechdel test.
+
+- Based on the posterior model of $\pi$, what values do you *think* Y might take? What is the most likely value? What's the range of values?
+
+- Use `chain_1` to simulate, plot, and discuss a *posterior predictive model* of Y. Hints and a solution are below.
 
 ```{r}
 
@@ -319,10 +347,26 @@ Suppose you watch *10* more recent films. Use `chain_1` to simulate, plot, and d
 
 Hints:
 
+- Y has a Bin(10, $\pi$) model
 - `chain_1` includes 5000 posterior plausible values of `pi`
 - for a full range of possible outcomes, simulate one outcome Y from each `pi` value
 - `rbinom(5000, size = ___, prob = __)`
 - scroll down for a solution
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -374,7 +418,7 @@ Run the chunk below which defines our Beta-Binomial model structure (the prior a
     The model depends upon parameter $\pi$, or `pi` in __rstan__ notation.  We must specify that $\pi$ can be any _real_ number between 0 and 1.
 
 - `model`    
-    The model is defined by the Bin(20, $\pi$) model for data Y and the Beta(2,2) prior for $\pi$. We specify these using `binomial()` and `beta()`.
+    The model is defined by the Bin(20, $\pi$) model for data Y and the Beta(2, 2) prior for $\pi$. We specify these using `binomial()` and `beta()`.
 
 ```{r eval = FALSE}
 # STEP 1: DEFINE the model
@@ -435,7 +479,7 @@ mcmc_dens(chain_1)
 
 **R Exercise: play around**    
 
-Play around with the `bb_sim` simulation step. Try increasing the number of `chains` from 1 to 4. What do you think is going on here? What might be the advantages to using 4 chains?
+Play around with the `bb_sim` simulation step.
 
 ```{r eval = FALSE}
 new_chain <- ???
@@ -443,8 +487,10 @@ mcmc_trace(new_chain)
 mcmc_dens_overlay(new_chain)
 ```
 
-Try increasing `iter` from `5000*2` to `10000*2`. Construct some plots and explain what this does.
+- Try increasing the number of `chains` from 1 to 4. What do you think is going on here? What might be the advantages to using 4 chains?
 
-Switch up the model! How can we change the syntax to simulate the posterior model of $\pi$ if we used a Beta(1,4) prior and observed that 23 of 50 films passed the Bechdel test?
+- Try increasing `iter` from `5000*2` to `10000*2`. Construct some plots and explain what this does.
+
+- Switch up the model! How can we change the syntax to simulate the posterior model of $\pi$ if we used a Beta(1,4) prior and observed that 23 of 50 films passed the Bechdel test?
 
 

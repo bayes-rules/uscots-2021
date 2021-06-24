@@ -26,9 +26,41 @@ class: top
 
 # Motivation
 
-Bayesian models can get real complicated, real fast:
 
-<br>
+.pull-left[
+
+### Unit 1
+
+```{r, out.width = "75%", echo = FALSE, fig.align= "left"}
+knitr::include_graphics("img/unit_1.png")
+```
+
+
+
+]
+
+--
+
+.pull-right[
+
+### Unit 3
+
+```{r, out.width = "75%", echo = FALSE, fig.align= "left"}
+knitr::include_graphics("img/unit_3.png")
+```
+
+]
+
+
+
+
+---
+
+class: top
+
+# The snag
+
+The regression and classification models in Unit 3 get complicated:
 
 $$\begin{split}
 f(\beta_0,\beta_1,\sigma \; | \; \vec{y}) 
@@ -49,11 +81,25 @@ class: top
 
 # Unit 2
 
-- Chapter 6: _Approximating_ the Posterior
+**Chapter 6: _Approximating_ the Posterior**
 
-- Chapter 7: MCMC Under the Hood
+How can we *approximate* a posterior using Markov chain Monte Carlo (MCMC) techniques?
 
-- Chapter 8: Posterior Inference and Prediction
+--
+
+<hr>
+
+**Chapter 7: MCMC Under the Hood**
+
+How does MCMC *work*?
+
+--
+
+<hr>
+
+**Chapter 8: Posterior Inference and Prediction**
+
+How can we use our approximation for inference and prediction?
 
 ---
 
@@ -61,7 +107,7 @@ class: top
 
 # Activity
 
-Let $\pi$ be the proportion of films that pass the Bechdel test. Starting with a Beta(2,2) **prior** model for $\pi$, and **data** that 9 of 20 films passed the test, our **posterior** model of $\pi$ is Beta(11, 13):
+Let $\pi$ be the proportion of films that pass the Bechdel test. Starting with a Beta(2, 2) **prior** model for $\pi$, and **data** that 9 of 20 films passed the test, our **posterior** model of $\pi$ is Beta(11, 13):
 
 
 ```{r echo = FALSE, fig.width = 8, fig.height = 4}
