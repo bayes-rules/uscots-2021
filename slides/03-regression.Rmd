@@ -74,6 +74,8 @@ bikes %>%
 
 ---
 
+class: middle
+
 ## Models
 
 **likelihood:** $Y_i | \beta_0, \beta_1, \sigma \;\;\;\stackrel{ind}{\sim} N\left(\mu_i, \sigma^2\right)\text{ with } \mu_i = \beta_0 + \beta_1X_i$
@@ -84,6 +86,12 @@ $\beta_0\sim N(m_0, s_0^2 )$
 $\beta_1\sim N(m_1, s_1^2 )$  
 $\sigma \sim \text{Exp}(l)$
 
-<hr>
+---
 
-Goals:  simulating the posterior & posterior prediction
+class: middle
+
+## Goals
+
+Statistics goals:  simulating the posterior, posterior prediction, model evaluation
+
+Pedagogical goals: compute for a single case and then use a built-in function
