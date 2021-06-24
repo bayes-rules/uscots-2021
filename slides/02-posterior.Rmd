@@ -131,7 +131,7 @@ $$\left\lbrace \pi^{(1)}, \pi^{(2)}, \ldots, \pi^{(N)} \right\rbrace$$
 
 --
 
-- the $\pi$ values are *not random*: $\pi^{(i)}$ depends upon $\pi^{(i-1)}$ depends upon $\pi^{(i-2)}$ depends upon...(and so on)
+- the $\pi$ values are *not independent*: $\pi^{(i)}$ depends upon $\pi^{(i-1)}$ depends upon $\pi^{(i-2)}$ depends upon...(and so on)
 
 --
 
