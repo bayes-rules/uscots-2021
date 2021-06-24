@@ -193,13 +193,46 @@ ggplot(predict_75, aes(x = y_new)) +
   geom_density()
 ```
 
+# Model Evaluation
+
 **Exercise: evaluating predictions**
 
 Now that we have predictions for ridership for a day, how would you assess if our prediction is a good one or not?
 Remember that, all models are wrong^[George Box]. 
 It might make more sense to discuss how you would assess how *bad* the prediction is.
-We will not have R code for this in the workshop as we wrap things up but answering it conceptually in your groups would be good.
 
+
+We can also use built-in functions to make posterior predictions. 
+This will make life a little easier because we can easily make predictions for days that have temperature other than 75.
+
+```{r}
+predictions <- posterior_predict(bike_model, newdata = bikes)
+```
+
+If you take a look at the `predictions` object you will see that for each of the 500 observed `temp_feel` values there are 20,000 posterior predictions of `rides`. 
+We can compute 50% and 95% posterior predictive credible intervals for each $x$ (`temp_feel`) with the `ppc_intervals()` function.
+To start understanding the plot, you may first focus on when $x = 75$ since this is the case, we have computed the posterior prediction from scratch.
+
+
+**Exercise: model evaluation**
+
+Based on the plot below, how bad do you think the model is?
+
+
+```{r fig.width=8, fig.height=6}
+ppc_intervals(bikes$rides, yrep = predictions, x = bikes$temp_feel, 
+              prob = 0.5, prob_outer = 0.95)
+```
+
+You might be wondering how many of these observed values are falling in their respective 50% and 95% credible intervals. Well, `prediction_summary` from `bayesrules` has an answer for this.
+
+```{r}
+prediction_summary(model = bike_model, data = bikes, 
+                   prob_inner = 0.5, prob_outer = 0.95)
+```
+
+You might also be wondering what median absolute error `mae` is. 
+We expect to be short on time for this part of the workshop so make sure to follow up on [Model Evaluation](https://www.bayesrulesbook.com/chapter-10.html) in the book.
 
 # Discussion
 
